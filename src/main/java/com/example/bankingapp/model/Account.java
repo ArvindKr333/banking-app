@@ -2,10 +2,14 @@ package com.example.bankingapp.model;
 
 public class Account {
     private Long id;
-    private String acoountNumber;
+    private String accountNumber;
     private Double balance;
 
     public Account() {
+    }
+
+    public Account(Double balance) {
+        this.balance = balance;
     }
 
     public Long getId() {
@@ -16,12 +20,12 @@ public class Account {
         this.id = id;
     }
 
-    public String getAcoountNumber() {
-        return acoountNumber;
+    public String getAccountNumber() {
+        return accountNumber;
     }
 
-    public void setAcoountNumber(String acoountNumber) {
-        this.acoountNumber = acoountNumber;
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
     }
 
     public Double getBalance() {
@@ -30,5 +34,14 @@ public class Account {
 
     public void setBalance(Double balance) {
         this.balance = balance;
+    }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", accountNumber='" + accountNumber + '\'' +
+                ", balance=" + balance +
+                '}';
     }
 }

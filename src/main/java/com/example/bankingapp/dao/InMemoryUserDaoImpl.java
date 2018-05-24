@@ -1,5 +1,6 @@
 package com.example.bankingapp.dao;
 
+import com.example.bankingapp.UserType;
 import com.example.bankingapp.model.User;
 
 import java.util.*;
@@ -11,7 +12,7 @@ public class InMemoryUserDaoImpl implements UserDao {
 
     public InMemoryUserDaoImpl() {
         counter = 1L;
-        User user = new User(counter++, "Md Zahid Raza", "zahid7292", "zahid");
+        User user = new User(counter++, "Md Zahid Raza", "zahid7292", "zahid", UserType.MANAGER);
         userCache.put(user.getId(), user);
     }
 

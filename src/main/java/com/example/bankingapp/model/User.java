@@ -1,25 +1,32 @@
 package com.example.bankingapp.model;
 
+import com.example.bankingapp.UserType;
+
 public class User {
     private Long id;
     private String name;
     private String username;
     private String password;
+    private String type;  //Manager, Customer
+
+    private Account account;
 
     public User() {
     }
 
-    public User(String name, String username, String password) {
+    public User(String name, String username, String password, UserType userType) {
         this.name = name;
         this.username = username;
         this.password = password;
+        this.type = userType.getValue();
     }
 
-    public User(Long id, String name, String username, String password) {
+    public User(Long id, String name, String username, String password, UserType userType) {
         this.id = id;
         this.name = name;
         this.username = username;
         this.password = password;
+        this.type = userType.getValue();
     }
 
     public Long getId() {
@@ -54,6 +61,22 @@ public class User {
         this.password = password;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -61,6 +84,8 @@ public class User {
                 ", name='" + name + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", type='" + type + '\'' +
+                ", account=" + account +
                 '}';
     }
 }

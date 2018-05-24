@@ -1,5 +1,6 @@
 package com.example.bankingapp.dao;
 
+import com.example.bankingapp.UserType;
 import com.example.bankingapp.model.User;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -26,7 +27,7 @@ public class InMemoryUserDaoImplTest {
     public void save() {
         Assert.assertEquals(inMemoryUserDao.count(), 1L);
 
-        User user = new User("Arvind Kumar", "arvind123", "arvind");
+        User user = new User("Arvind Kumar", "arvind123", "arvind", UserType.CUSTOMER);
         user = inMemoryUserDao.save(user);
 
         Assert.assertNotNull(user);
