@@ -1,6 +1,10 @@
 package com.example.bankingapp;
 
+import com.example.bankingapp.dao.MySQLUserDaoImpl;
+import com.example.bankingapp.dao.UserDao;
+import com.example.bankingapp.model.User;
 import com.jazasoft.util.Utils;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 @Test
@@ -16,7 +20,9 @@ public class UserTypeTest {
         System.out.println(UserType.CUSTOMER);
     }
 
-    public void test() {
-        System.out.println(Utils.getRandomNumber(10));
+    public void testConection() {
+        Assert.assertNotNull(ConnectionUtils.getConnection());
     }
+
+
 }

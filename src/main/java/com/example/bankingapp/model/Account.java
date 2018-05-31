@@ -12,6 +12,12 @@ public class Account {
         this.balance = balance;
     }
 
+    public Account(Long id, String accountNumber, Double balance) {
+        this.id = id;
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+
     public Long getId() {
         return id;
     }

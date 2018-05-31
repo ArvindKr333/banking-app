@@ -7,13 +7,13 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 @Test
-public class InMemoryUserDaoImplTest {
+public class MySQLUserDaoImplTest {
 
     UserDao userDao;
 
     @BeforeClass
     public void setUp() {
-        userDao = new InMemoryUserDaoImpl();
+        userDao = new MySQLUserDaoImpl();
     }
 
     public void authenticate() {
@@ -25,14 +25,16 @@ public class InMemoryUserDaoImplTest {
     }
 
     public void save() {
-        Assert.assertEquals(userDao.count(), 1L);
-
         User user = new User("Arvind Kumar", "arvind123", "arvind", UserType.CUSTOMER);
         user = userDao.save(user);
 
         Assert.assertNotNull(user);
         Assert.assertNotNull(user.getId());
-        Assert.assertEquals(userDao.count(), 2L);
     }
 
+    public void findOne() {
+        User user = userDao.findOne("srk123");
+        Assert.assertNotNull(user);
+        Assert.assertNotNull(user.getAccount());
+    }
 }

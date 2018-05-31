@@ -1,9 +1,6 @@
 package com.example.bankingapp;
 
-import com.example.bankingapp.dao.AccountDao;
-import com.example.bankingapp.dao.InMemoryAccountDaoImpl;
-import com.example.bankingapp.dao.InMemoryUserDaoImpl;
-import com.example.bankingapp.dao.UserDao;
+import com.example.bankingapp.dao.*;
 import com.example.bankingapp.model.Account;
 import com.example.bankingapp.model.User;
 import com.example.bankingapp.service.AccountService;
@@ -13,8 +10,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Collection;
-import java.util.List;
-import java.util.Scanner;
 
 public class BankingApp {
 
@@ -22,7 +17,7 @@ public class BankingApp {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         User user;
 
-        UserDao userDao = new InMemoryUserDaoImpl();
+        UserDao userDao = new MySQLUserDaoImpl();
         UserService userService = new UserService(userDao);
 
         AccountDao accountDao = new InMemoryAccountDaoImpl();
