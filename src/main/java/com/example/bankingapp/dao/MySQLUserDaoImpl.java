@@ -42,7 +42,7 @@ public class MySQLUserDaoImpl implements UserDao {
                 String type = rs.getString(5);
                 user = new User(id, name, uName, password, UserType.parse(type));
 
-                sql = "SELECT * FROM account WHERE user_id = " + id;
+                sql = "SELECT * FROM account WHERE user_id = '" + id + "'";
 
                 rs = statement.executeQuery(sql);
                 if (rs.next()) {
